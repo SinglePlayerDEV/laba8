@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+void zap(int arr[], int row) {
+	for (int i = 0; i < row; i+=2) {
+		arr[i] = (rand() % 10); 
+	}
+	for (int i = 0; i < row; i+=2) {
+		cout << arr[i] << "\t";
+	}
+}
+
+int summ(int arr[], int row) {
+	int summ = 0;
+	for (int i = 0; i < row; i+=2)
+	{
+		summ += arr[i];
+	}
+	return summ;
+}
+
+int main() {
+
+	const int row = 5;
+
+	int arr1[row];
+	int arr2[row];
+	int arr3[row];
+
+	cout << "arr one    ";
+	zap(arr1, row);
+	cout << "summa " << summ(arr1, row) << endl;
+
+	cout << "arr two    ";
+	zap(arr2, row);
+	cout << "summa " << summ(arr2, row) << endl;
+
+	cout << "arr three  ";
+	zap(arr3, row);
+	cout << "summa " << summ(arr3, row) << endl;
+
+	cout << summ(arr1, row) * summ(arr2, row) * summ(arr3, row);
+}
