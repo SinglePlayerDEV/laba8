@@ -1,0 +1,54 @@
+#include <iostream> 
+#include <ctime> 
+
+using namespace std;
+
+void pizda(int arr[], int max)
+{
+    for (int i = 0; i < max; i++) {
+        arr[i] = rand() % 10;
+    }
+    for (int i = 0; i < max; i++)
+    {
+        cout << arr[i] << "\t";
+    }
+}
+int poisk(int arr[], int max, int N)
+{
+    int counter = 0;
+    for (int i = 0; i < max; i++) {
+        if (arr[i] == N) {
+            counter++;
+        }
+    }
+    return counter;
+}
+int main()
+{
+    srand(time(NULL));
+
+    setlocale(LC_ALL, "ru");
+
+    const int max = 10;
+    int N;
+    int arr1[max];
+    int arr2[max];
+    int arr3[max];
+
+    cout << "enter N " << endl;
+    cin >> N;
+
+    cout << "Arr 1: ";
+    pizda(arr1, max);
+    cout << " ==== " << poisk(arr1, max, N) << endl;
+
+    cout << "Arr 2: ";
+    pizda(arr2, max);
+    cout << " ==== " << poisk(arr2, max, N) << endl;
+
+    cout << "Arr 3: ";
+    pizda(arr3, max);
+    cout << " ==== " << poisk(arr3, max, N) << endl;
+
+    return 0;
+}
